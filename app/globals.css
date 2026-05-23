@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+:root {
+  --base:     #11111b;
+  --mantle:   #181825;
+  --crust:    #1e1e2e;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  --overlay0: #6c7086;
+  --subtext0: #a6adc8;
+  --text:     #cdd6f4;
+  --blue:     #89b4fa;
+  --sky:      #89dceb;
+  --green:    #a6e3a1;
+  --peach:    #fab387;
+  --red:      #f38ba8;
+  --mauve:    #cba6f7;
+}
+
+body {
+  background: var(--base);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #313244; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #45475a; }
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-overlay   { animation: overlayIn 0.18s ease; }
+.animate-modal     { animation: modalIn 0.22s cubic-bezier(0.16, 1, 0.3, 1); }
+.animate-slide-down { animation: slideDown 0.14s ease; }
+
+.font-mono {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
+}
