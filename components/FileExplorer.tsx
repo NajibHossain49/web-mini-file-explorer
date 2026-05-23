@@ -83,10 +83,9 @@ export default function FileExplorer() {
         {/* Left: logo + mobile toggle */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <button
-            className="md:hidden"
+            className="flex md:hidden"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             style={{
-              display: "none",
               alignItems: "center",
               justifyContent: "center",
               width: "32px",
@@ -140,7 +139,7 @@ export default function FileExplorer() {
           </div>
         </div>
 
-        {/* Right: reset + window dots */}
+        {/* Right: reset */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <button
             onClick={resetToDefault}
@@ -172,29 +171,6 @@ export default function FileExplorer() {
             <RotateCcw size={11} />
             <span>Reset</span>
           </button>
-
-          {/* macOS-style dots */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              paddingLeft: "4px",
-            }}
-          >
-            {["#f38ba8", "#f9e2af", "#a6e3a1"].map((c, i) => (
-              <div
-                key={i}
-                style={{
-                  width: "11px",
-                  height: "11px",
-                  borderRadius: "50%",
-                  background: c,
-                  opacity: 0.85,
-                }}
-              />
-            ))}
-          </div>
         </div>
       </header>
 
@@ -242,6 +218,7 @@ export default function FileExplorer() {
             onRename={setRenameTarget}
             onDelete={setDeleteTarget}
             onCreate={setCreateParentId}
+            isOpen={sidebarOpen}
           />
         </div>
 

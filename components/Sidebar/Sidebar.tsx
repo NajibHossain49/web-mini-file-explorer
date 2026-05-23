@@ -15,6 +15,7 @@ interface SidebarProps {
   onRename: (node: FileNode) => void;
   onDelete: (node: FileNode) => void;
   onCreate: (parentId: string) => void;
+  isOpen?: boolean;
 }
 
 export default function Sidebar({
@@ -28,9 +29,13 @@ export default function Sidebar({
   onRename,
   onDelete,
   onCreate,
+  isOpen = false,
 }: SidebarProps) {
   return (
     <aside
+      className={`fixed inset-y-0 left-0 z-50 transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      }`}
       style={{
         width: "232px",
         flexShrink: 0,
