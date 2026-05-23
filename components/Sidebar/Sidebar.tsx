@@ -1,8 +1,8 @@
 "use client";
 
-import TreeNode from "./TreeNode";
 import { FileNode } from "@/types";
 import { HardDrive, Plus } from "lucide-react";
+import TreeNode from "./TreeNode";
 
 interface SidebarProps {
   root: FileNode;
@@ -18,24 +18,51 @@ interface SidebarProps {
 }
 
 export default function Sidebar({
-  root, expandedIds, selectedFolderId, openFileId,
-  onToggleExpand, onSelectFolder, onOpenFile, onRename, onDelete, onCreate,
+  root,
+  expandedIds,
+  selectedFolderId,
+  openFileId,
+  onToggleExpand,
+  onSelectFolder,
+  onOpenFile,
+  onRename,
+  onDelete,
+  onCreate,
 }: SidebarProps) {
   return (
-    <aside style={{
-      width: "232px",
-      flexShrink: 0,
-      background: "#181825",
-      borderRight: "1px solid #313244",
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-    }}>
+    <aside
+      style={{
+        width: "232px",
+        flexShrink: 0,
+        background: "#181825",
+        borderRight: "1px solid #313244",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+      }}
+    >
       {/* Header */}
-      <div style={{ padding: "16px 14px 12px", borderBottom: "1px solid #313244" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "12px" }}>
+      <div
+        style={{ padding: "16px 14px 12px", borderBottom: "1px solid #313244" }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "7px",
+            marginBottom: "12px",
+          }}
+        >
           <HardDrive size={12} color="#6c7086" />
-          <span style={{ fontSize: "10px", fontWeight: 600, color: "#6c7086", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          <span
+            style={{
+              fontSize: "10px",
+              fontWeight: 600,
+              color: "#6c7086",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+            }}
+          >
             Explorer
           </span>
         </div>
@@ -58,8 +85,16 @@ export default function Sidebar({
             fontFamily: "inherit",
             transition: "all 0.15s",
           }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(137,180,250,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(137,180,250,0.4)"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "#313244"; }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.background =
+              "rgba(137,180,250,0.08)";
+            (e.currentTarget as HTMLElement).style.borderColor =
+              "rgba(137,180,250,0.4)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.background = "transparent";
+            (e.currentTarget as HTMLElement).style.borderColor = "#313244";
+          }}
         >
           <Plus size={12} /> New Item
         </button>
@@ -83,13 +118,6 @@ export default function Sidebar({
           selectedFolderId={selectedFolderId}
           openFileId={openFileId}
         />
-      </div>
-
-      {/* Footer */}
-      <div style={{ padding: "12px 14px", borderTop: "1px solid #313244" }}>
-        <p style={{ fontSize: "10px", color: "#45475a", textAlign: "center" }}>
-          Webbly Media
-        </p>
       </div>
     </aside>
   );

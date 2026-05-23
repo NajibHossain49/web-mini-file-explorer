@@ -29,7 +29,7 @@ export function findParent(root: FileNode, targetId: string): FileNode | null {
 export function addNode(
   root: FileNode,
   parentId: string,
-  newNode: FileNode
+  newNode: FileNode,
 ): FileNode {
   if (root.id === parentId) {
     return {
@@ -46,7 +46,7 @@ export function addNode(
 export function renameNode(
   root: FileNode,
   id: string,
-  newName: string
+  newName: string,
 ): FileNode {
   if (root.id === id) return { ...root, name: newName };
   return {
@@ -67,13 +67,13 @@ export function deleteNode(root: FileNode, id: string): FileNode {
 export function updateFileContent(
   root: FileNode,
   id: string,
-  content: string
+  content: string,
 ): FileNode {
   if (root.id === id) return { ...root, content };
   return {
     ...root,
     children: root.children?.map((child) =>
-      updateFileContent(child, id, content)
+      updateFileContent(child, id, content),
     ),
   };
 }
@@ -81,7 +81,7 @@ export function updateFileContent(
 export function createNewNode(
   name: string,
   nodeType: NodeType,
-  parentId: string
+  parentId: string,
 ): FileNode {
   return {
     id: generateId(),
@@ -109,15 +109,15 @@ export const INITIAL_DATA: FileNode = {
           name: "readme.txt",
           type: "text",
           parentId: "folder-1",
-          content:
-            "# Welcome to Webbly Media File Explorer\n\nThis is your personal file manager.\nYou can create, edit, rename and delete files and folders.\n\nEnjoy organizing your files!",
+          content: "# Every file is a memory drifting through LocalStorage ",
         },
         {
           id: "file-2",
           name: "notes.txt",
           type: "text",
           parentId: "folder-1",
-          content: "Meeting notes:\n- Discuss Q3 targets\n- Review design mockups\n- Team sync at 3 PM",
+          content:
+            "Meeting notes:\n- Discuss Q3 targets\n- Review design mockups\n- Team sync at 3 PM",
         },
         {
           id: "folder-2",
@@ -130,8 +130,7 @@ export const INITIAL_DATA: FileNode = {
               name: "project-plan.txt",
               type: "text",
               parentId: "folder-2",
-              content:
-                "Project: Mini File Explorer\nClient: Webbly Media\nDeadline: Tomorrow 5 PM\n\nTasks:\n[x] Setup Next.js 16\n[x] Build file tree\n[ ] Add drag & drop",
+              content: "Eid Mubarak",
             },
           ],
         },
@@ -155,7 +154,8 @@ export const INITIAL_DATA: FileNode = {
           name: "todo.txt",
           type: "text",
           parentId: "folder-4",
-          content: "TODO List:\n1. Buy groceries\n2. Fix the bug in production\n3. Call the client\n4. Submit invoice",
+          content:
+            "TODO List:\n1. Buy groceries\n2. Fix the bug in production\n3. Call the client\n4. Submit invoice",
         },
       ],
     },
@@ -164,8 +164,7 @@ export const INITIAL_DATA: FileNode = {
       name: "welcome.txt",
       type: "text",
       parentId: "root",
-      content:
-        "Welcome to Webbly Media!\n\nThis file explorer lets you:\n• Create folders and files\n• Rename and delete items\n• Edit text file content\n• Navigate hierarchical structure",
+      content: "Eid Mubarak",
     },
   ],
 };
