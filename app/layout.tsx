@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Web File Explorer",
   description: "Web File Explorer",
+  icons: {
+    icon: "/app/favicon.png",
+  },
 };
 
 export default function RootLayout({
